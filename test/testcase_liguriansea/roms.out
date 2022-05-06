@@ -1,0 +1,769 @@
+--------------------------------------------------------------------------------
+ Model Input Parameters:  ROMS/TOMS version 3.9  
+                          Friday - May 6, 2022 -  8:53:57 AM
+--------------------------------------------------------------------------------
+
+ Wind-Driven Upwelling/Downwelling over a Periodic Channel
+
+ Operating system  : Linux
+ CPU/hardware      : x86_64
+ Compiler system   : gfortran
+ Compiler command  : /usr/bin/mpif90
+ Compiler flags    : -frepack-arrays -fallow-argument-mismatch -O3 -ffast-math -
+ OCN Communicator  : 0,  PET size = 1
+
+ Input Script      : roms.in
+
+ SVN Root URL     : https://www.myroms.org/svn/src/tags/roms-3.9
+ SVN Revision     : 1124
+
+ Local Root       : /root/src/roms
+ Header Dir       : /root/ROMS-implementation-test
+ Header file      : liguriansea.h
+ Analytical Dir   : /root/ROMS-implementation-test
+
+ Resolution, Grid 01: 136x73x32,  Parallel Nodes: 1,  Tiling: 1x1
+
+
+ Physical Parameters, Grid: 01
+ =============================
+
+       5184  ntimes            Number of timesteps for 3-D equations.
+     10.000  dt                Timestep size (s) for 3-D equations.
+         60  ndtfast           Number of timesteps for 2-D equations between
+                                 each 3D timestep.
+          1  ERstr             Starting ensemble/perturbation run number.
+          1  ERend             Ending ensemble/perturbation run number.
+          0  nrrec             Number of restart records to read from disk.
+          T  LcycleRST         Switch to recycle time-records in restart file.
+        288  nRST              Number of timesteps between the writing of data
+                                 into restart fields.
+          1  ninfo             Number of timesteps between print of information
+                                 to standard output.
+          T  ldefout           Switch to create a new output NetCDF file(s).
+         72  nHIS              Number of timesteps between the writing fields
+                                 into history file.
+          0  nQCK              Number of timesteps between the writing fields
+                                 into quicksave file.
+          1  ntsAVG            Starting timestep for the accumulation of output
+                                 time-averaged data.
+         72  nAVG              Number of timesteps between the writing of
+                                 time-averaged data into averages file.
+ 5.0000E+01  nl_tnu2(01)       NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for tracer 01: temp
+ 0.0000E+00  nl_tnu2(02)       NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for tracer 02: salt
+ 5.0000E+00  nl_visc2          NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for momentum.
+          F  LuvSponge         Turning OFF sponge on horizontal momentum.
+          F  LtracerSponge(01) Turning OFF sponge on tracer 01: temp
+          F  LtracerSponge(02) Turning OFF sponge on tracer 02: salt
+ 1.0000E-06  Akt_bak(01)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 01: temp
+ 1.0000E-06  Akt_bak(02)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 02: salt
+ 1.0000E-05  Akv_bak           Background vertical mixing coefficient (m2/s)
+                                 for momentum.
+ 5.0000E-06  Akk_bak           Background vertical mixing coefficient (m2/s)
+                                 for turbulent energy.
+ 5.0000E-06  Akp_bak           Background vertical mixing coefficient (m2/s)
+                                 for turbulent generic statistical field.
+ 3.0000E-04  rdrg              Linear bottom drag coefficient (m/s).
+ 3.0000E-03  rdrg2             Quadratic bottom drag coefficient.
+ 2.0000E-02  Zob               Bottom roughness (m).
+ 1.0000E+01  blk_ZQ            Height (m) of surface air humidity measurement.
+ 1.0000E+01  blk_ZT            Height (m) of surface air temperature measurement.
+ 1.0000E+01  blk_ZW            Height (m) of surface winds measurement.
+          1  lmd_Jwt           Jerlov water type.
+          2  Vtransform        S-coordinate transformation equation.
+          4  Vstretching       S-coordinate stretching function.
+ 5.0000E+00  theta_s           S-coordinate surface control parameter.
+ 4.0000E-01  theta_b           S-coordinate bottom  control parameter.
+     50.000  Tcline            S-coordinate surface/bottom layer width (m) used
+                                 in vertical coordinate stretching.
+   1025.000  rho0              Mean density (kg/m3) for Boussinesq approximation.
+  58485.000  dstart            Time-stamp assigned to model initialization (days).
+18581117.00  time_ref          Reference time for units attribute (yyyymmdd.dd)
+ 1.0000E+01  Tnudg(01)         Nudging/relaxation time scale (days)
+                                 for tracer 01: temp
+ 1.0000E+01  Tnudg(02)         Nudging/relaxation time scale (days)
+                                 for tracer 02: salt
+ 0.0000E+00  Znudg             Nudging/relaxation time scale (days)
+                                 for free-surface.
+ 0.0000E+00  M2nudg            Nudging/relaxation time scale (days)
+                                 for 2D momentum.
+ 0.0000E+00  M3nudg            Nudging/relaxation time scale (days)
+                                 for 3D momentum.
+ 1.0000E+01  obcfac            Factor between passive and active
+                                 open boundary conditions.
+          F  VolCons(1)        NLM western  edge boundary volume conservation.
+          F  VolCons(2)        NLM southern edge boundary volume conservation.
+          F  VolCons(3)        NLM eastern  edge boundary volume conservation.
+          F  VolCons(4)        NLM northern edge boundary volume conservation.
+     14.000  T0                Background potential temperature (C) constant.
+     35.000  S0                Background salinity (PSU) constant.
+      1.000  gamma2            Slipperiness variable: free-slip (1.0) or 
+                                                      no-slip (-1.0).
+          F  LuvSrc            Turning OFF momentum point Sources/Sinks.
+          F  LwSrc             Turning OFF volume influx point Sources/Sinks.
+          F  LtracerSrc(01)    Turning OFF point Sources/Sinks on tracer 01: temp
+          F  LtracerSrc(02)    Turning OFF point Sources/Sinks on tracer 02: salt
+          F  LsshCLM           Turning OFF processing of SSH climatology.
+          F  Lm2CLM            Turning OFF processing of 2D momentum climatology.
+          F  Lm3CLM            Turning OFF processing of 3D momentum climatology.
+          T  LtracerCLM(01)    Turning ON  processing of climatology tracer 01: temp
+          T  LtracerCLM(02)    Turning ON  processing of climatology tracer 02: salt
+          F  LnudgeM2CLM       Turning OFF nudging of 2D momentum climatology.
+          F  LnudgeM3CLM       Turning OFF nudging of 3D momentum climatology.
+          T  LnudgeTCLM(01)    Turning ON  nudging of climatology tracer 01: temp
+          T  LnudgeTCLM(02)    Turning ON  nudging of climatology tracer 02: salt
+
+          T  Hout(idFsur)      Write out free-surface.
+          T  Hout(idUbar)      Write out 2D U-momentum component.
+          T  Hout(idVbar)      Write out 2D V-momentum component.
+          T  Hout(idUvel)      Write out 3D U-momentum component.
+          T  Hout(idVvel)      Write out 3D V-momentum component.
+          T  Hout(idWvel)      Write out W-momentum component.
+          T  Hout(idOvel)      Write out omega vertical velocity.
+          T  Hout(idTvar)      Write out tracer 01: temp
+          T  Hout(idTvar)      Write out tracer 02: salt
+
+          T  Aout(idFsur)      Write out averaged free-surface.
+          T  Aout(idUbar)      Write out averaged 2D U-momentum component.
+          T  Aout(idVbar)      Write out averaged 2D V-momentum component.
+          T  Aout(idUvel)      Write out averaged 3D U-momentum component.
+          T  Aout(idVvel)      Write out averaged 3D V-momentum component.
+          T  Aout(idWvel)      Write out averaged W-momentum component.
+          T  Aout(idOvel)      Write out averaged omega vertical velocity.
+          T  Aout(idTvar)      Write out averaged tracer 01: temp
+          T  Aout(idTvar)      Write out averaged tracer 02: salt
+
+ Output/Input Files:
+
+               Output Restart File:  roms_rst.nc
+               Output History File:  roms_his.nc
+              Output Averages File:  roms_avg.nc
+                   Input Grid File:  LS2v.nc
+      Input Nonlinear Initial File:  ic2019.nc
+             Input Forcing File 01:  liguriansea2019_lwrad.nc
+             Input Forcing File 02:  liguriansea2019_swrad.nc
+             Input Forcing File 03:  liguriansea2019_wind.nc
+             Input Forcing File 04:  liguriansea2019_Pair.nc
+             Input Forcing File 05:  liguriansea2019_Qair.nc
+             Input Forcing File 06:  liguriansea2019_Tair.nc
+             Input Forcing File 07:  liguriansea2019_cloud.nc
+             Input Forcing File 08:  liguriansea2019_latent.nc
+             Input Forcing File 09:  liguriansea2019_rain.nc
+             Input Forcing File 10:  liguriansea2019_sensible.nc
+             Input Forcing File 11:  liguriansea2019_shflux.nc
+             Input Forcing File 12:  liguriansea2019_sms.nc
+             Input Forcing File 13:  liguriansea2019_swflux.nc
+         Input Climatology File 01:  clim2019.nc
+     Input Nudge Coefficients File:  roms_nud_7_50.nc
+  ROMS I/O variables Metadata File:  /root/ROMS-implementation-test/varinfo.dat
+
+ Tile partition information for Grid 01:  136x73x32  tiling: 1x1
+
+     tile     Istr     Iend     Jstr     Jend     Npts
+
+        0        1      136        1       73   317696
+
+ Tile minimum and maximum fractional coordinates for Grid 01:
+   (interior points only)
+
+     tile     Xmin     Xmax     Ymin     Ymax     grid
+
+        0     0.50   136.50     0.50    73.50  RHO-points
+
+        0     1.00   136.00     0.50    73.50    U-points
+
+        0     0.50   136.50     1.00    73.00    V-points
+
+ Maximum halo size in XI and ETA directions:
+
+               HaloSizeI(1) =     450
+               HaloSizeJ(1) =     249
+                TileSide(1) =     144
+                TileSize(1) =   11088
+
+
+ Tracer Advection Scheme: NLM
+ ========================
+
+ Variable               Grid  Horizontal         Vertical
+ ---------              ----  ------------       ------------
+
+ temp                     1   Upstream3          Centered4
+
+ salt                     1   Upstream3          Centered4
+
+ Akima4     Fourth-order Akima advection
+ Centered2  Second-order centered differences advection
+ Centered4  Fourth-order centered differences advection
+ HSIMT      Third High-order Spatial Inteporlation at Middle Time Advection with TVD limiter
+ MPDATA     Multidimensional Positive Definite Advection Algorithm, recursive method
+ Splines    Conservative Parabolic Splines Reconstruction Advection (only vertical; not recommended)
+ Split_U3   Split third-order Upstream Advection
+ Upstream3  Third-order Upstream-biased Advection (only horizontal)
+
+
+ Lateral Boundary Conditions: NLM
+ ============================
+
+ Variable               Grid  West Edge    South Edge   East Edge    North Edge
+ ---------              ----  ----------   ----------   ----------   ----------
+
+ zeta                     1   Periodic     Closed       Periodic     Closed
+
+ ubar                     1   Periodic     Closed       Periodic     Closed
+
+ vbar                     1   Periodic     Closed       Periodic     Closed
+
+ u                        1   Periodic     Closed       Periodic     Closed
+
+ v                        1   Periodic     Closed       Periodic     Closed
+
+ temp                     1   Periodic     Closed       Periodic     Closed
+
+ salt                     1   Periodic     Closed       Periodic     Closed
+
+ tke                      1   Periodic     Closed       Periodic     Closed
+
+ Activated C-preprocessing Options:
+
+ LigurianSea              Wind-Driven Upwelling/Downwelling over a Periodic Channel
+ ANA_BSFLUX               Analytical kinematic bottom salinity flux
+ ANA_BTFLUX               Analytical kinematic bottom temperature flux
+ ANA_SSFLUX               Analytical kinematic surface salinity flux
+ ASSUMED_SHAPE            Using assumed-shape arrays
+ AVERAGES                 Writing out time-averaged nonlinear model fields
+ !BOUNDARY_ALLGATHER      Using mpi_allreduce in mp_boundary routine
+ BULK_FLUXES              Surface bulk fluxes parameterization
+ !COLLECT_ALL...          Using mpi_isend/mpi_recv in mp_collect routine
+ DJ_GRADPS                Parabolic Splines density Jacobian (Shchepetkin, 2002)
+ DOUBLE_PRECISION         Double precision arithmetic numerical kernel.
+ KANTHA_CLAYSON           Kantha and Clayson stability function formulation
+ LONGWAVE                 Compute net longwave radiation internally
+ MASKING                  Land/Sea masking
+ MIX_S_TS                 Mixing of tracers along constant S-surfaces
+ MIX_S_UV                 Mixing of momentum along constant S-surfaces
+ MPI                      MPI distributed-memory configuration
+ MY25_MIXING              Mellor/Yamada Level-2.5 mixing closure
+ NONLINEAR                Nonlinear Model
+ NONLIN_EOS               Nonlinear Equation of State for seawater
+ N2S2_HORAVG              Horizontal smoothing of buoyancy and shear
+ POWER_LAW                Power-law shape time-averaging barotropic filter
+ PROFILE                  Time profiling activated
+ K_GSCHEME                Third-order upstream advection of TKE fields
+ REDUCE_ALLREDUCE         Using mpi_allreduce in mp_reduce routine
+ !RST_SINGLE              Double precision fields in restart NetCDF file
+ SALINITY                 Using salinity
+ SOLAR_SOURCE             Solar Radiation Source Term
+ SOLVE3D                  Solving 3D Primitive Equations
+ TS_DIF2                  Harmonic mixing of tracers
+ UV_ADV                   Advection of momentum
+ UV_COR                   Coriolis term
+ UV_U3HADVECTION          Third-order upstream horizontal advection of 3D momentum
+ UV_C4VADVECTION          Fourth-order centered vertical advection of momentum
+ UV_QDRAG                 Quadratic bottom stress
+ UV_VIS2                  Harmonic mixing of momentum
+ VAR_RHO_2D               Variable density barotropic mode
+
+ Process Information:
+
+ Node #    0 (pid=      68) is active.
+
+ INITIAL: Configuring and initializing forward nonlinear model ...
+ *******
+
+    GET_GRID    - angle between XI-axis and EAST: angler
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  0.00000000E+00 Max =  0.00000000E+00)
+    GET_GRID    - reciprocal XI-grid spacing: pm
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  3.62992232E-04 Max =  3.77994705E-04)
+    GET_GRID    - reciprocal ETA-grid spacing: pn
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  2.69720469E-04 Max =  2.69720469E-04)
+    GET_GRID    - Coriolis parameter at RHO-points: f
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  1.03782544E-04 Max =  1.08071878E-04)
+    GET_GRID    - bathymetry at RHO-points: h
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  2.00000000E+00 Max =  2.83692752E+03)
+    GET_GRID    - x-location of RHO-points: x-rho
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  1.47859647E+04 Max =  2.36510727E+04)
+    GET_GRID    - y-location of RHO-points: y_rho
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  9.00224176E+04 Max =  9.65971190E+04)
+    GET_GRID    - x-location of PSI-points: x_psi
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  1.48183191E+04 Max =  2.36187183E+04)
+    GET_GRID    - y-location of PSI-points: y-psi
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  9.00659661E+04 Max =  9.65517829E+04)
+    GET_GRID    - x-location of U-points: x_u
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  1.48183191E+04 Max =  2.36187183E+04)
+    GET_GRID    - y-location of U-points: y_u
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  9.00224176E+04 Max =  9.65971190E+04)
+    GET_GRID    - x-location of V-points: x_v
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  1.47859647E+04 Max =  2.36510727E+04)
+    GET_GRID    - y-location of V-points: y_v
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  9.00659661E+04 Max =  9.65517829E+04)
+    GET_GRID    - longitude of RHO-points: lon_rho
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  7.61666667E+00 Max =  1.21833333E+01)
+    GET_GRID    - latitude of RHO-points lat_rho
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  4.20083333E+01 Max =  4.44750000E+01)
+    GET_GRID    - longitude of PSI-points: lon_psi
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  7.63333333E+00 Max =  1.21666667E+01)
+    GET_GRID    - latitude of PSI-points lat_psi
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  4.20250000E+01 Max =  4.44583333E+01)
+    GET_GRID    - longitude of U-points: lon_u
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  7.63333333E+00 Max =  1.21666667E+01)
+    GET_GRID    - latitude of U-points: lat_u
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  4.20083333E+01 Max =  4.44750000E+01)
+    GET_GRID    - longitude of V-points: lon_v
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  7.61666667E+00 Max =  1.21833333E+01)
+    GET_GRID    - latitude of V-points: lat_v
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  4.20250000E+01 Max =  4.44583333E+01)
+    GET_GRID    - mask on RHO-points: mask_rho
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  0.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on PSI-points: mask_psi
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  0.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on U-points: mask_u
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  0.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on V-points: mask_v
+                   (Grid = 01, File: LS2v.nc)
+                   (Min =  0.00000000E+00 Max =  1.00000000E+00)
+
+ Vertical S-coordinate System, Grid 01:
+
+ level   S-coord     Cs-curve   Z   at hmin       at hc    half way     at hmax
+
+    32   0.0000000   0.0000000        0.000       0.000       0.000       0.000
+    31  -0.0312500  -0.0002027       -0.060      -0.786      -1.787      -2.101
+    30  -0.0625000  -0.0008157       -0.120      -1.583      -4.137      -5.345
+    29  -0.0937500  -0.0018538       -0.180      -2.390      -7.070      -9.774
+    28  -0.1250000  -0.0033418       -0.241      -3.209     -10.619     -15.458
+    27  -0.1562500  -0.0053155       -0.301      -4.039     -14.835     -22.496
+    26  -0.1875000  -0.0078222       -0.361      -4.883     -19.782     -31.019
+    25  -0.2187500  -0.0109217       -0.422      -5.742     -25.541     -41.196
+    24  -0.2500000  -0.0146880       -0.482      -6.617     -32.214     -53.231
+    23  -0.2812500  -0.0192105       -0.542      -7.512     -39.925     -67.374
+    22  -0.3125000  -0.0245961       -0.603      -8.427     -48.819     -83.923
+    21  -0.3437500  -0.0309716       -0.663      -9.368     -59.070    -103.232
+    20  -0.3750000  -0.0384860       -0.724     -10.337     -70.883    -125.716
+    19  -0.4062500  -0.0473137       -0.785     -11.339     -84.496    -151.861
+    18  -0.4375000  -0.0576579       -0.846     -12.379    -100.189    -182.235
+    17  -0.4687500  -0.0697544       -0.907     -13.463    -118.285    -217.492
+    16  -0.5000000  -0.0838752       -0.968     -14.597    -139.156    -258.394
+    15  -0.5312500  -0.1003338       -1.029     -15.790    -163.233    -305.812
+    14  -0.5625000  -0.1194890       -1.091     -17.050    -191.007    -360.748
+    13  -0.5937500  -0.1417503       -1.153     -18.388    -223.040    -424.344
+    12  -0.6250000  -0.1675822       -1.215     -19.815    -259.970    -497.893
+    11  -0.6562500  -0.1975084       -1.277     -21.344    -302.513    -582.857
+    10  -0.6875000  -0.2321148       -1.340     -22.990    -351.473    -680.868
+     9  -0.7187500  -0.2720516       -1.403     -24.770    -407.742    -793.739
+     8  -0.7500000  -0.3180318       -1.467     -26.701    -472.298    -923.458
+     7  -0.7812500  -0.3708273       -1.531     -28.802    -546.199   -1072.176
+     6  -0.8125000  -0.4312588       -1.596     -31.094    -630.570   -1242.182
+     5  -0.8437500  -0.5001797       -1.661     -33.598    -726.581   -1435.855
+     4  -0.8750000  -0.5784503       -1.727     -36.336    -835.412   -1655.592
+     3  -0.9062500  -0.6669010       -1.794     -39.329    -958.202   -1903.710
+     2  -0.9375000  -0.7662811       -1.862     -42.595   -1095.978   -2182.296
+     1  -0.9687500  -0.8771915       -1.930     -46.149   -1249.564   -2493.027
+     0  -1.0000000  -1.0000000       -2.000     -50.000   -1419.464   -2836.928
+
+ Time Splitting Weights for Grid 01:    ndtfast =  60    nfast =  83
+ ==================================
+
+    Primary            Secondary            Accumulated to Current Step
+
+  1-0.0003540175431531 0.0166666666666667-0.0003540175431531 0.0166666666666667
+  2-0.0006728864853186 0.0166725669590525-0.0010269040284717 0.0333392336257192
+  3-0.0009566069754562 0.0166837817338079-0.0019835110039279 0.0500230153595271
+  4-0.0012051795928536 0.0166997251833988-0.0031886905967815 0.0667227405429259
+  5-0.0014186058436584 0.0167198115099464-0.0046072964404400 0.0834425520528722
+  6-0.0015968888560239 0.0167434549406740-0.0062041852964638 0.1001860069935462
+  7-0.0017400342738662 0.0167700697549411-0.0079442195703301 0.1169560767484873
+  8-0.0018480513492362 0.0167990703261722-0.0097922709195663 0.1337551470746594
+  9-0.0019209542333025 0.0168298711819928-0.0117132251528688 0.1505850182566522
+ 10-0.0019587634659484 0.0168618870858811-0.0136719886188171 0.1674469053425334
+ 11-0.0019615076639817 0.0168945331436470-0.0156334962827989 0.1843414384861803
+ 12-0.0019292254079571 0.0169272249380466-0.0175627216907560 0.2012686634242269
+ 13-0.0018619673276114 0.0169593786948459-0.0194246890183674 0.2182280421190729
+ 14-0.0017597983859117 0.0169904114836395-0.0211844874042792 0.2352184536027123
+ 15-0.0016228003617172 0.0170197414567380-0.0228072877659964 0.2522381950594503
+ 16-0.0014510745310524 0.0170467881294333-0.0242583622970488 0.2692849831888836
+ 17-0.0012447445469948 0.0170709727049508-0.0255031068440436 0.2863559558938344
+ 18-0.0010039595181742 0.0170917184474007-0.0265070663622178 0.3034476743412351
+ 19-0.0007288972858858 0.0171084511060370-0.0272359636481036 0.3205561254472721
+ 20-0.0004197678998158 0.0171205993941351-0.0276557315479194 0.3376767248414071
+ 21-0.0000768172923796 0.0171275955257987-0.0277325488402990 0.3548043203672058
+ 22 0.0002996688483262 0.0171288758140050-0.0274328799919727 0.3719331961812108
+ 23 0.0007093610069602 0.0171238813331995-0.0267235189850126 0.3890570775144103
+ 24 0.0011518815707581 0.0171120586497502-0.0255716374142545 0.4061691361641605
+ 25 0.0016268003607435 0.0170928606235709-0.0239448370535109 0.4232619967877314
+ 26 0.0021336299643244 0.0170657472842252-0.0218112070891865 0.4403277440719566
+ 27 0.0026718208692771 0.0170301867848198-0.0191393862199094 0.4573579308567763
+ 28 0.0032407563991181 0.0169856564369985-0.0158986298207914 0.4743435872937748
+ 29 0.0038397474498617 0.0169316438303465-0.0120588823709297 0.4912752311241214
+ 30 0.0044680270281659 0.0168676480395155-0.0075908553427637 0.5081428791636369
+ 31 0.0051247445908649 0.0167931809223794-0.0024661107518988 0.5249360600860162
+ 32 0.0058089601858883 0.0167077685125316 0.0033428494339895 0.5416438285985479
+ 33 0.0065196383945684 0.0166109525094335 0.0098624878285578 0.5582547811079814
+ 34 0.0072556420753336 0.0165022918695240 0.0171181299038915 0.5747570729775054
+ 35 0.0080157259087899 0.0163813645016018 0.0251338558126813 0.5911384374791072
+ 36 0.0087985297441882 0.0162477690697886 0.0339323855568695 0.6073862065488959
+ 37 0.0096025717472802 0.0161011269073855 0.0435349573041498 0.6234873334562814
+ 38 0.0104262413495604 0.0159410840449308 0.0539611986537101 0.6394284175012122
+ 39 0.0112677919988951 0.0157673133557715 0.0652289906526052 0.6551957308569837
+ 40 0.0121253337115396 0.0155795168224566 0.0773543243641448 0.6707752476794403
+ 41 0.0129968254255413 0.0153774279272643 0.0903511497896861 0.6861526756067046
+ 42 0.0138800671555305 0.0151608141701719 0.1042312169452166 0.7013134897768765
+ 43 0.0147726919488984 0.0149294797175797 0.1190039088941151 0.7162429694944562
+ 44 0.0156721576433617 0.0146832681850981 0.1346760665374767 0.7309262376795543
+ 45 0.0165757384259147 0.0144220655577087 0.1512518049633914 0.7453483032372631
+ 46 0.0174805161931688 0.0141458032506101 0.1687323211565602 0.7594941064878732
+ 47 0.0183833717130782 0.0138544613140573 0.1871156928696384 0.7733485678019305
+ 48 0.0192809755880536 0.0135480717855060 0.2063966684576919 0.7868966395874365
+ 49 0.0201697790194623 0.0132267221923718 0.2265664474771543 0.8001233617798083
+ 50 0.0210460043735164 0.0128905592087141 0.2476124518506707 0.8130139209885223
+ 51 0.0219056355485466 0.0125397924691555 0.2695180873992172 0.8255537134576778
+ 52 0.0227444081436646 0.0121746985433464 0.2922624955428819 0.8377284120010242
+ 53 0.0235577994288118 0.0117956250742853 0.3158202949716937 0.8495240370753095
+ 54 0.0243410181161952 0.0114029950838051 0.3401613130878889 0.8609270321591147
+ 55 0.0250889939331105 0.0109973114485352 0.3652503070209993 0.8719243436076499
+ 56 0.0257963669961523 0.0105791615496500 0.3910466740171515 0.8825035051572999
+ 57 0.0264574769868114 0.0101492220997141 0.4175041510039630 0.8926527272570141
+ 58 0.0270663521284595 0.0097082641499340 0.4445705031324225 0.9023609914069480
+ 59 0.0276166979647200 0.0092571582811263 0.4721872010971425 0.9116181496880743
+ 60 0.0281018859392274 0.0087968799817143 0.5002890870363699 0.9204150296697886
+ 61 0.0285149417767724 0.0083285152160605 0.5288040288131423 0.9287435448858491
+ 62 0.0288485336658352 0.0078532661864476 0.5576525624789774 0.9365968110722968
+ 63 0.0290949602425051 0.0073724572920170 0.5867475227214825 0.9439692683643138
+ 64 0.0292461383757877 0.0068875412879753 0.6159936610972702 0.9508568096522891
+ 65 0.0292935907542990 0.0064001056483788 0.6452872518515692 0.9572569153006679
+ 66 0.0292284332743468 0.0059118791358072 0.6745156851259161 0.9631687944364751
+ 67 0.0290413622293988 0.0054247385812347 0.7035570473553149 0.9685935330177098
+ 68 0.0287226413009382 0.0049407158774114 0.7322796886562531 0.9735342488951212
+ 69 0.0282620883507064 0.0044620051890624 0.7605417770069595 0.9779962540841837
+ 70 0.0276490620143323 0.0039909703832173 0.7881908390212917 0.9819872244674011
+ 71 0.0268724480963495 0.0035301526829785 0.8150632871176412 0.9855173771503796
+ 72 0.0259206457666001 0.0030822785480393 0.8409839328842413 0.9885996556984189
+ 73 0.0247815535580256 0.0026502677852626 0.8657654864422669 0.9912499234836816
+ 74 0.0234425551658448 0.0022372418926289 0.8892080416081117 0.9934871653763104
+ 75 0.0218905050481195 0.0018465326398648 0.9110985466562312 0.9953336980161752
+ 76 0.0201117138277064 0.0014816908890628 0.9312102604839377 0.9968153889052380
+ 77 0.0180919334955969 0.0011464956586010 0.9493021939795346 0.9979618845638391
+ 78 0.0158163424156431 0.0008449634336744 0.9651185363951778 0.9988068479975135
+ 79 0.0132695301306720 0.0005813577267470 0.9783880665258498 0.9993882057242606
+ 80 0.0104354819699858 0.0003601988912358 0.9888235484958355 0.9997484046154964
+ 81 0.0072975634582502 0.0001862741917361 0.9961211119540857 0.9999346788072325
+ 82 0.0038385045257688 0.0000646481340986 0.9999596164798544 0.9999993269413311
+ 83 0.0000403835201457 0.0000006730586691 1.0000000000000000 1.0000000000000002
+
+ ndtfast, nfast =   60  83   nfast/ndtfast =  1.38333
+
+ Centers of gravity and integrals (values must be 1, 1, approx 1/2, 1, 1):
+
+    1.000000000000 1.029032332991 0.514516166496 1.000000000000 1.000000000000
+
+ Power filter parameters, Fgamma, gamma =  0.28400   0.23667
+
+ Metrics information for Grid 01:
+ ===============================
+
+ Minimum X-grid spacing, DXmin =  2.64553971E+00 km    Water points =  2.64856024E+00 km
+ Maximum X-grid spacing, DXmax =  2.75487989E+00 km    Water points =  2.75487989E+00 km
+ Minimum Y-grid spacing, DYmin =  3.70754212E+00 km    Water points =  3.70754212E+00 km
+ Maximum Y-grid spacing, DYmax =  3.70754212E+00 km    Water points =  3.70754212E+00 km
+ Minimum Z-grid spacing, DZmin =  6.01117470E-02 m     Water points =  1.05510855E-01 m
+ Maximum Z-grid spacing, DZmax =  3.43900261E+02 m     Water points =  3.43900261E+02 m
+
+ Minimum barotropic Courant Number =  4.53295620E-04
+ Maximum barotropic Courant Number =  1.26427729E-02
+ Maximum Coriolis   Courant Number =  1.08071878E-03
+
+
+   GET_NUDGCOEF - generic tracer inverse nudging coefficients: tracer_NudgeCoef
+                   (Grid = 01, File: roms_nud_7_50.nc)
+                   (Min =  0.00000000E+00 Max =  1.65343915E-06)
+   GET_NUDGCOEF - generic tracer inverse nudging coefficients: tracer_NudgeCoef
+                   (Grid = 01, File: roms_nud_7_50.nc)
+                   (Min =  0.00000000E+00 Max =  1.65343915E-06)
+
+ NLM: GET_STATE - Reading state initial conditions,                       2019-01-02 00:00:00.00
+                   (Grid 01, t = 58485.0000, File: ic2019.nc, Rec=0001, Index=1)
+                - free-surface
+                   (Min = -6.89090908E-01 Max = -5.07331073E-01)
+                - vertically integrated u-momentum component
+                   (Min = -2.14111090E-01 Max =  1.82920650E-01)
+                - vertically integrated v-momentum component
+                   (Min = -3.60866010E-01 Max =  3.04750890E-01)
+                - u-momentum component
+                   (Min = -4.34346646E-01 Max =  2.51575142E-01)
+                - v-momentum component
+                   (Min = -3.92634571E-01 Max =  4.81603235E-01)
+                - potential temperature
+                   (Min =  8.66465950E+00 Max =  1.64264126E+01)
+                - salinity
+                   (Min =  3.12259483E+01 Max =  3.87738991E+01)
+    GET_2DFLD   - surface u-wind component,                        2019-01-01 21:00:00.00
+                   (Grid=01, Rec=7, Index=1, File: liguriansea2019_wind.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58484.8750
+                   (Min = -4.09797632E+00 Max =  9.33678005E+00)      regrid = T
+    GET_2DFLD   - surface v-wind component,                        2019-01-01 21:00:00.00
+                   (Grid=01, Rec=7, Index=1, File: liguriansea2019_wind.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58484.8750
+                   (Min = -4.03173639E+00 Max =  7.02646731E+00)      regrid = T
+    GET_2DFLD   - surface air pressure,                            2019-01-01 21:00:00.00
+                   (Grid=01, Rec=7, Index=1, File: liguriansea2019_Pair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58484.8750
+                   (Min =  1.01651329E+03 Max =  1.02365977E+03)      regrid = T
+    GET_2DFLD   - cloud fraction,                                  2019-01-01 21:00:00.00
+                   (Grid=01, Rec=7, Index=1, File: liguriansea2019_cloud.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58484.8750
+                   (Min =  0.00000000E+00 Max =  9.99991353E-01)      regrid = T
+    GET_2DFLD   - solar shortwave radiation flux,                  2019-01-01 22:30:00.00
+                   (Grid=01, Rec=8, Index=1, File: liguriansea2019_swrad.nc)
+                   (Tmin=      58484.0625 Tmax=      58490.0625)      t =      58484.9375
+                   (Min =  0.00000000E+00 Max =  0.00000000E+00)      regrid = T
+    GET_2DFLD   - surface air temperature,                         2019-01-01 21:00:00.00
+                   (Grid=01, Rec=7, Index=1, File: liguriansea2019_Tair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58484.8750
+                   (Min = -1.10181073E+00 Max =  1.43119852E+01)      regrid = T
+    GET_2DFLD   - surface air relative humidity,                   2019-01-01 21:00:00.00
+                   (Grid=01, Rec=7, Index=1, File: liguriansea2019_Qair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58484.8750
+                   (Min =  1.01967111E-01 Max =  9.99202103E-01)      regrid = T
+    GET_2DFLD   - rain fall rate,                                  2019-01-01 22:30:00.00
+                   (Grid=01, Rec=8, Index=1, File: liguriansea2019_rain.nc)
+                   (Tmin=      58484.0625 Tmax=      58490.0625)      t =      58484.9375
+                   (Min =  0.00000000E+00 Max =  2.97944205E-05)      regrid = T
+    GET_3DFLD   - potential temperature climatology,               2019-01-01 12:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: clim2019.nc)
+                   (Tmin=      58484.5000 Tmax=      58490.5000)      t =      58484.5000
+                   (Min =  8.66465950E+00 Max =  1.64264126E+01)
+    GET_3DFLD   - salinity climatology,                            2019-01-01 12:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: clim2019.nc)
+                   (Tmin=      58484.5000 Tmax=      58490.5000)      t =      58484.5000
+                   (Min =  3.12259483E+01 Max =  3.87738991E+01)
+
+ Basin information for Grid 01:
+
+ Maximum grid stiffness ratios:  rx0 =   9.985639E-01 (Beckmann and Haidvogel)
+                                 rx1 =   2.397268E+01 (Haney)
+
+ Initial domain volumes:  TotVolume =  5.9692467857E+13 m3
+                         MinCellVol =  1.0622914518E+06 m3
+                         MaxCellVol =  3.5013259975E+09 m3
+                            Max/Min =  3.2960125883E+03
+
+
+ NL ROMS/TOMS: started time-stepping: (Grid: 01 TimeSteps: 000000000001 - 000000005184)
+
+    GET_2DFLD   - surface u-wind component,                        2019-01-02 00:00:00.00
+                   (Grid=01, Rec=8, Index=2, File: liguriansea2019_wind.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.0000
+                   (Min = -5.66837161E+00 Max =  9.35809559E+00)      regrid = T
+    GET_2DFLD   - surface v-wind component,                        2019-01-02 00:00:00.00
+                   (Grid=01, Rec=8, Index=2, File: liguriansea2019_wind.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.0000
+                   (Min = -3.70658013E+00 Max =  8.29014536E+00)      regrid = T
+    GET_2DFLD   - surface air pressure,                            2019-01-02 00:00:00.00
+                   (Grid=01, Rec=8, Index=2, File: liguriansea2019_Pair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.0000
+                   (Min =  1.01553472E+03 Max =  1.02107925E+03)      regrid = T
+    GET_2DFLD   - cloud fraction,                                  2019-01-02 00:00:00.00
+                   (Grid=01, Rec=8, Index=2, File: liguriansea2019_cloud.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.0000
+                   (Min =  0.00000000E+00 Max =  1.00000763E+00)      regrid = T
+    GET_2DFLD   - solar shortwave radiation flux,                  2019-01-02 01:30:00.00
+                   (Grid=01, Rec=9, Index=2, File: liguriansea2019_swrad.nc)
+                   (Tmin=      58484.0625 Tmax=      58490.0625)      t =      58485.0625
+                   (Min =  0.00000000E+00 Max =  0.00000000E+00)      regrid = T
+    GET_2DFLD   - surface air temperature,                         2019-01-02 00:00:00.00
+                   (Grid=01, Rec=8, Index=2, File: liguriansea2019_Tair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.0000
+                   (Min = -1.51098044E+00 Max =  1.44229394E+01)      regrid = T
+    GET_2DFLD   - surface air relative humidity,                   2019-01-02 00:00:00.00
+                   (Grid=01, Rec=8, Index=2, File: liguriansea2019_Qair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.0000
+                   (Min =  9.28141129E-02 Max =  9.98375595E-01)      regrid = T
+    GET_2DFLD   - rain fall rate,                                  2019-01-02 01:30:00.00
+                   (Grid=01, Rec=9, Index=2, File: liguriansea2019_rain.nc)
+                   (Tmin=      58484.0625 Tmax=      58490.0625)      t =      58485.0625
+                   (Min =  0.00000000E+00 Max =  3.04080580E-05)      regrid = T
+    GET_3DFLD   - potential temperature climatology,               2019-01-02 12:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: clim2019.nc)
+                   (Tmin=      58484.5000 Tmax=      58490.5000)      t =      58485.5000
+                   (Min =  8.24056244E+00 Max =  1.63738880E+01)
+    GET_3DFLD   - salinity climatology,                            2019-01-02 12:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: clim2019.nc)
+                   (Tmin=      58484.5000 Tmax=      58490.5000)      t =      58485.5000
+                   (Min =  3.13421898E+01 Max =  3.87734222E+01)
+
+ TIME-STEP YYYY-MM-DD hh:mm:ss.ss  KINETIC_ENRG   POTEN_ENRG    TOTAL_ENRG    NET_VOLUME
+                     C => (i,j,k)       Cu            Cv            Cw         Max Speed
+
+         0 2019-01-02 00:00:00.00  1.921511E-03  1.040616E+04  1.040616E+04  5.981631E+13
+                      (001,44,32)  1.494755E-03  5.740902E-04  0.000000E+00  4.920701E-01
+      DEF_HIS     - creating  history      file, Grid 01: roms_his.nc
+      WRT_HIS     - wrote history     fields (Index=1,1) in record = 1
+      DEF_AVG     - creating  average      file, Grid 01: roms_avg.nc
+    GET_2DFLD   - surface u-wind component,                        2019-01-02 03:00:00.00
+                   (Grid=01, Rec=9, Index=1, File: liguriansea2019_wind.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.1250
+                   (Min = -5.52136126E+00 Max =  8.91362558E+00)      regrid = T
+    GET_2DFLD   - surface v-wind component,                        2019-01-02 03:00:00.00
+                   (Grid=01, Rec=9, Index=1, File: liguriansea2019_wind.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.1250
+                   (Min = -4.80130893E+00 Max =  6.74327578E+00)      regrid = T
+    GET_2DFLD   - surface air pressure,                            2019-01-02 03:00:00.00
+                   (Grid=01, Rec=9, Index=1, File: liguriansea2019_Pair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.1250
+                   (Min =  1.01418545E+03 Max =  1.01868771E+03)      regrid = T
+    GET_2DFLD   - cloud fraction,                                  2019-01-02 03:00:00.00
+                   (Grid=01, Rec=9, Index=1, File: liguriansea2019_cloud.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.1250
+                   (Min =  8.13845545E-06 Max =  1.00000763E+00)      regrid = T
+    GET_2DFLD   - surface air temperature,                         2019-01-02 03:00:00.00
+                   (Grid=01, Rec=9, Index=1, File: liguriansea2019_Tair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.1250
+                   (Min = -1.56216008E+00 Max =  1.44326933E+01)      regrid = T
+    GET_2DFLD   - surface air relative humidity,                   2019-01-02 03:00:00.00
+                   (Grid=01, Rec=9, Index=1, File: liguriansea2019_Qair.nc)
+                   (Tmin=      58484.1250 Tmax=      58490.1250)      t =      58485.1250
+                   (Min =  1.17330294E-01 Max =  9.97825041E-01)      regrid = T
+         1 2019-01-02 00:00:10.00  4.695232E-03  1.040597E+04  1.040598E+04  5.981557E+13
+                      (136,01,01)  2.191423E-03  0.000000E+00  4.935763E+00  9.207331E-01
+         2 2019-01-02 00:00:20.00  1.196821E-02  1.040545E+04  1.040546E+04  5.981351E+13
+                      (136,19,01)  4.528699E-03  0.000000E+00  9.151632E+01  1.750146E+00
+         3 2019-01-02 00:00:30.00  2.204217E-02  1.040466E+04  1.040468E+04  5.981042E+13
+                      (136,19,01)  6.373650E-03  0.000000E+00  1.736360E+02  2.472597E+00
+         4 2019-01-02 00:00:40.00  3.421071E-02  1.040369E+04  1.040373E+04  5.980665E+13
+                      (136,19,01)  7.945203E-03  0.000000E+00  2.441923E+02  3.097941E+00
+         5 2019-01-02 00:00:50.00  4.826125E-02  1.040263E+04  1.040267E+04  5.980246E+13
+                      (136,19,01)  9.337320E-03  0.000000E+00  3.041397E+02  3.652705E+00
+         6 2019-01-02 00:01:00.00  6.407442E-02  1.040149E+04  1.040155E+04  5.979800E+13
+                      (136,09,01)  1.052956E-02  0.000000E+00  3.573334E+02  4.165036E+00
+         7 2019-01-02 00:01:10.00  8.160035E-02  1.040030E+04  1.040038E+04  5.979335E+13
+                      (136,09,01)  1.181277E-02  0.000000E+00  4.079087E+02  4.656478E+00
+         8 2019-01-02 00:01:20.00  1.007736E-01  1.039907E+04  1.039917E+04  5.978855E+13
+                      (136,09,01)  1.307704E-02  0.000000E+00  4.574544E+02  5.138711E+00
+         9 2019-01-02 00:01:30.00  1.186234E-01  1.039781E+04  1.039793E+04  5.978364E+13
+                      (136,09,01)  1.432224E-02  0.000000E+00  5.063522E+02  5.616911E+00
+        10 2019-01-02 00:01:40.00  1.363755E-01  1.039653E+04  1.039666E+04  5.977866E+13
+                      (136,09,01)  1.541860E-02  0.000000E+00  5.578157E+02  6.743934E+00
+        11 2019-01-02 00:01:50.00  1.591346E-01  1.039522E+04  1.039538E+04  5.977362E+13
+                      (136,05,01)  1.676734E-02  0.000000E+00  5.999759E+02  8.331851E+00
+        12 2019-01-02 00:02:00.00  1.756077E-01  1.039390E+04  1.039407E+04  5.976854E+13
+                      (136,05,01)  1.807566E-02  0.000000E+00  6.488501E+02  1.008833E+01
+        13 2019-01-02 00:02:10.00  1.949994E-01  1.039256E+04  1.039276E+04  5.976342E+13
+                      (136,05,01)  1.941946E-02  0.000000E+00  6.990789E+02  1.203348E+01
+        14 2019-01-02 00:02:20.00  2.183561E-01  1.039121E+04  1.039143E+04  5.975824E+13
+                      (136,05,01)  2.078944E-02  0.000000E+00  7.506522E+02  1.428460E+01
+        15 2019-01-02 00:02:30.00  2.421209E-01  1.038985E+04  1.039009E+04  5.975302E+13
+                      (136,05,01)  2.218700E-02  0.000000E+00  8.032557E+02  1.678777E+01
+        16 2019-01-02 00:02:40.00  2.638488E-01  1.038848E+04  1.038874E+04  5.974775E+13
+                      (136,05,01)  2.361753E-02  0.000000E+00  8.570007E+02  1.948519E+01
+        17 2019-01-02 00:02:50.00  2.880724E-01  1.038709E+04  1.038738E+04  5.974244E+13
+                      (136,05,01)  2.503521E-02  0.000000E+00  9.128796E+02  2.242930E+01
+ Found Error: 01   Line: 314      Source: ROMS/Nonlinear/main3d.F
+ Found Error: 01   Line: 302      Source: ROMS/Drivers/nl_ocean.h, ROMS_run
+
+ Blowing-up: Saving latest model state into  RESTART file
+     REASON: MaxSpeed =  2.2E+01
+
+      WRT_RST     - wrote re-start    fields (Index=2,2) in record = 1
+
+Elapsed wall CPU time for each process (seconds):
+
+ Node   #    0 CPU:       3.100
+ Total:                   3.100
+
+ Nonlinear model elapsed CPU time profile, Grid: 01
+
+  Allocation and array initialization ..............         0.036  ( 1.1744 %)
+  Ocean state initialization .......................         0.004  ( 0.1377 %)
+  Reading of input data ............................         0.073  ( 2.3438 %)
+  Processing of input data .........................         0.020  ( 0.6354 %)
+  Processing of output time averaged data ..........         0.032  ( 1.0231 %)
+  Computation of vertical boundary conditions ......         0.001  ( 0.0396 %)
+  Computation of global information integrals ......         0.031  ( 1.0119 %)
+  Writing of output data ...........................         0.026  ( 0.8410 %)
+  Model 2D kernel ..................................         1.169  (37.7170 %)
+  2D/3D coupling, vertical metrics .................         0.037  ( 1.1946 %)
+  Omega vertical velocity ..........................         0.027  ( 0.8856 %)
+  Equation of state for seawater ...................         0.111  ( 3.5944 %)
+  Atmosphere-Ocean bulk flux parameterization ......         0.164  ( 5.2887 %)
+  My2.5 vertical mixing parameterization ...........         0.377  (12.1592 %)
+  3D equations right-side terms ....................         0.154  ( 4.9703 %)
+  3D equations predictor step ......................         0.249  ( 8.0350 %)
+  Pressure gradient ................................         0.106  ( 3.4246 %)
+  Harmonic mixing of tracers, S-surfaces ...........         0.042  ( 1.3414 %)
+  Harmonic stress tensor, S-surfaces ...............         0.069  ( 2.2228 %)
+  Corrector time-step for 3D momentum ..............         0.108  ( 3.4915 %)
+  Corrector time-step for tracers ..................         0.153  ( 4.9498 %)
+                                              Total:         2.991   96.4816 %
+
+  Unique kernel(s) regions profiled ................         2.991   96.4816 %
+  Residual, non-profiled code ......................         0.109    3.5184 %
+
+
+ All percentages are with respect to total time =            3.100
+
+
+ MPI communications profile, Grid: 01
+
+  Message Passage: 2D halo exchanges ...............         0.007  ( 0.2257 %)
+  Message Passage: 3D halo exchanges ...............         0.001  ( 0.0179 %)
+  Message Passage: 4D halo exchanges ...............         0.000  ( 0.0046 %)
+  Message Passage: data broadcast ..................         0.002  ( 0.0582 %)
+  Message Passage: data reduction ..................         0.000  ( 0.0069 %)
+  Message Passage: data gathering ..................         0.014  ( 0.4357 %)
+  Message Passage: data scattering..................         0.011  ( 0.3573 %)
+  Message Passage: point data gathering ............         0.000  ( 0.0000 %)
+  Message Passage: synchronization barrier .........         0.000  ( 0.0001 %)
+                                              Total:         0.034    1.1065 %
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ Dynamic and Automatic memory (MB) usage for Grid 01:  136x73x32  tiling: 1x1
+
+     tile          Dynamic        Automatic            USAGE      MPI-Buffers
+
+        0           161.67            20.88           182.56             2.93
+
+    TOTAL           161.67            20.88           182.56             2.93
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+ ROMS/TOMS - Output NetCDF summary for Grid 01:
+             number of time records written in HISTORY file = 1
+             number of time records written in RESTART file = 1
+
+ Analytical header files used:
+
+     ROMS/Functionals/ana_btflux.h
+     ROMS/Functionals/ana_stflux.h
+
+ MAIN: Abnormal termination: BLOWUP.
+ REASON: MaxSpeed =  2.2E+01
